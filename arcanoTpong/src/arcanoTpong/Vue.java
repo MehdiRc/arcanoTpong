@@ -14,14 +14,12 @@ public class Vue extends JFrame{
 	private static BufferedImage balle;
 	private static BufferedImage raquette;*/
 	
-	JLabel scoreJL;
-	JLabel chronosJL;
-
+	private JLabel scoreJL;
+	private JLabel chronosJL;
 	
-	
-	public ArrayList<Brique> briques = new ArrayList<Brique>();
-	public ArrayList<Balle> balles = new ArrayList<Balle>();
-	public ArrayList<Raquette> raquettes = new ArrayList<Raquette>();
+	private ArrayList<Brique> briques = new ArrayList<Brique>();
+	private ArrayList<Balle> balles = new ArrayList<Balle>();
+	private ArrayList<Raquette> raquettes = new ArrayList<Raquette>();
 	
 	public Vue() {
 		super();
@@ -42,9 +40,13 @@ public class Vue extends JFrame{
 	          Graphics2D g2 = (Graphics2D)g;
 	          
 	          for(Brique b : briques) {
-	        	  afficheBrique(b.x, b.y, b.largeur, b.hauteur,g2);
-	        	 /*g2.setColor(Color.BLUE);
-	        	  g2.fillRect(30, 30, 50, 50);*/
+	        	  afficheBrique(b.x, b.y, b.largeur, b.hauteur, g2, Color.BLUE.brighter());
+	          }
+	          for(Balle b : balles) {
+	        	  afficheBalle(b.x, b.y, b.largeur, b.hauteur, g2, Color.yellow.darker());
+	          }
+	          for(Raquette r : raquettes) {
+	        	  afficheRaquette(r.x, r.y, r.largeur, r.hauteur, g2, Color.red);
 	          }
 	        }
 	    };
@@ -56,21 +58,24 @@ public class Vue extends JFrame{
 	    setVisible(true);
 	}
 	
-	public void afficheBrique(int x, int y, int width, int heigth, Graphics2D g2) {
-		Color randomColor = new Color(100, 0, 50);
-		g2.setColor(randomColor);
-		g2.fillRect(x, y, width, heigth);
+	private void afficheBrique(int x, int y, int width, int height, Graphics2D g2, Color c) {
+		
+		g2.setColor(c);
+		g2.fillRect(x, y, width, height);
 		g2.setColor(Color.black);
-		g2.drawRect(x, y, width, heigth);
+		g2.drawRect(x, y, width, height);
 
 	}
 	
-	public void afficheBalle(int x, int y, int width, int heigth) {
-		
+	private void afficheBalle(int x, int y, int width, int height, Graphics2D g2, Color c) {
+		g2.setColor(c);
+		g2.fillOval(x, y, width, height);
+
 	}
 	
-	public void afficheRaquette(int x, int y, int width, int heigth) {
-		
+	private void afficheRaquette(int x, int y, int width, int height, Graphics2D g2, Color c) {
+		g2.setColor(c);
+		g2.fillRect(x, y, width, height);
 	}
 	
 	public void afficheScore(int score) {
@@ -81,10 +86,54 @@ public class Vue extends JFrame{
 		chronosJL.setText("temps : " + Integer.toString(chronos));
 	}
 	
-	public void ajouteBrique () {
-		briques.add(new Brique(10,10,50,50,200,100));
+	
+	public void ajouteBrique(Brique b) {
+		briques.add(b);
+	}
+	
+	public void ajouteBalle(Balle b) {
+		balles.add(b);
+	}
+	
+	public void ajouteRaquette(Raquette r) {
+		raquettes.add(r);
+	}
+	
+	
+	public void setListeBriques(ArrayList<Brique> b) {
+		this.briques = b;
+	}
+	
+	public void setListeBalles(ArrayList<Balle> b) {
+		this.balles = b;
+	}
+	
+	public void setListeRaquettes(ArrayList<Raquette> r) {
+		this.raquettes = r;
 	}
 	
 
+	public void enleveBrique(Brique b) {
+		this.briques.remove(b);
+	}
+	
+	public void enleveBalle(Balle b) {
+		this.balles.remove(b);
+	}
+	
+	public void enleveRaquette(Raquette r) {
+		this.raquettes.remove(r);
+	}
+	
+	
+	 public static void main(String args[]){
+		    Vue v = new Vue();
+		    v.afficheScore(45);
+		    v.afficheScore(1111111);
+		    
+		    v.ajouteBrique(new Brique(0,0,10,10,50,50));
+		    v.ajouteBalle(new Balle());
+		    v.ajouteRaquette(new Raquette());
+	 }
 	
 }
