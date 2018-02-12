@@ -57,9 +57,11 @@ public class Vue extends JFrame{
 	}
 	
 	public void afficheBrique(int x, int y, int width, int heigth, Graphics2D g2) {
-		
-		g2.setColor(Color.BLUE);
+		Color randomColor = new Color(100, 0, 50);
+		g2.setColor(randomColor);
 		g2.fillRect(x, y, width, heigth);
+		g2.setColor(Color.black);
+		g2.drawRect(x, y, width, heigth);
 
 	}
 	
@@ -83,13 +85,6 @@ public class Vue extends JFrame{
 		briques.add(new Brique(10,10,50,50,200,100));
 	}
 	
-	 public static void main(String args[]){
-		    Vue v = new Vue();
-		    v.afficheScore(45);
-		    v.afficheScore(1111111);
-		    //v.afficheBrique(0,1,2,3);
-		    
-		    v.ajouteBrique();
-	 }
+
 	
 }
