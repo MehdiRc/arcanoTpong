@@ -1,11 +1,12 @@
 package arcanoTpong;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Moteur {
 	private Brique inGBriques [][];
 	private ArrayList <Balle> inGBalles;
-	private ArrayList <Raquette> inGRaquettes;
+	private Raquette inGRaquettes [];
 	
 	private int chrono;
 	private boolean gameOver;
@@ -19,7 +20,7 @@ public class Moteur {
 		this.gameOver=false;
 		this.pause=false;
 		
-		inGRaquettes= new ArrayList <Raquette>();
+		inGRaquettes= new Raquette [nRaquettes];
 		inGBalles= new ArrayList <Balle>();
 		
 		
@@ -32,29 +33,33 @@ public class Moteur {
 		}
 		
 		for(int i=0; i<nRaquettes ;i++){
-			this.inGRaquettes.add(new Raquette());
+			this.inGRaquettes[i] = new Raquette();
 		}
 	
 	}
 	
-	private void killBrique(int i, int j, Raquette raquette){
+	public Brique killBrique(int i, int j, Raquette raquette){
 		raquette.addScore( this.inGBriques [i][j].kill() );
-		this.inGBriques [i][j]=null;
+		return this.inGBriques [i][j];
 	}
 	
-	private void killBall(Balle balle){
+	public void killBall(Balle balle){
 		inGBalles.remove(balle);
 	}
 	
-	private void createBall(Balle balle){
+	public void createBall(Balle balle){
 		inGBalles.add(balle) ;
 	}
 	
-	private void reviveBrique(int i, int j, Brique brique){
+	public void reviveBrique(int i, int j, Brique brique){
 		this.inGBriques [i][j] = brique;
 	}
 
-	public ArrayList <Raquette> getInGRaquettes() {
+	public ArrayList <Raquette> getInGRaquettesArrayListe() {
+		return new ArrayList<>(Arrays.asList(inGRaquettes));
+	}
+	
+	public Raquette[] getInGRaquettes() {
 		return inGRaquettes;
 	}
 	
@@ -62,7 +67,8 @@ public class Moteur {
 		ArrayList <Brique> result = new ArrayList <Brique> ();
 		for(int i=0; i<this.inGBriques.length ;i++){
 			for(int j=0; j<this.inGBriques[i].length ;j++){
-				result.add(this.inGBriques[i][j]);
+				if(this.inGBriques[i][j].getResistanece()>0)
+					result.add(this.inGBriques[i][j]);
 			}
 		}
 		return result;

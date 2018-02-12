@@ -22,5 +22,9 @@ public class Brique extends Forme {
 		this.resistance=0;
 		return valeur;
 	}
+	
+	public int getResistanece(){
+		return this.resistance;
+	}
 
 }

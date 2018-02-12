@@ -6,13 +6,18 @@ public class Controleur {
 	
 	 public static void main(String args[]){
 		 
-		    view.afficheScore(45);
-		    for(Raquette r:model.getInGRaquettes()){
-		    	view.afficheScore(r.getScore());
+		    for(int i= 0; i<model.getInGRaquettes().length;i++){
+		    	view.afficheScore(model.getInGRaquettes()[i].getScore());
 		    }
 		    
 		    view.setListeBriques(model.getInGBriquesClean());
 		    
+		    /*
+		    Brique deadB = model.killBrique(2,1,model.getInGRaquettes()[0]);
+		    view.enleveBrique(deadB);
+		    */
+		    
+		    view.afficheScore(model.getInGRaquettes()[0].getScore());
 		    
 		    
 	 }
