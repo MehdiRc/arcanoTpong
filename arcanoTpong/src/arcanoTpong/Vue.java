@@ -39,8 +39,10 @@ public class Vue extends JFrame{
 
 	          Graphics2D g2 = (Graphics2D)g;
 	          
+	          Color briqueColor = new Color(100, 25, 50);
+	          
 	          for(Brique b : briques) {
-	        	  afficheBrique(b.x, b.y, b.largeur, b.hauteur, g2, Color.BLUE.brighter());
+	        	  afficheBrique(b.x, b.y, b.largeur, b.hauteur, g2, briqueColor);
 	          }
 	          for(Balle b : balles) {
 	        	  afficheBalle(b.x, b.y, b.largeur, b.hauteur, g2, Color.yellow.darker());
