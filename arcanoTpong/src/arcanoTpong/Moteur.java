@@ -19,7 +19,7 @@ public class Moteur {
 		this.inGBriques = new Brique [nBriquesX][nBriquesY];
 		for(int i=0; i<nBriquesY ;i++){
 			for(int j=0; j<nBriquesX ;j++){
-				this.inGBriques[j][i]=new Brique(1, 1, j*100, i*100); //Valeurs de variables arbitraires juste pour tester 
+				this.inGBriques[j][i]=new Brique(1, 1, j*100, i*100, 300, 100); //Valeurs de variables arbitraires juste pour tester 
 				//x= j*largeur de brique; y= i*hauteur de brique 
 			}
 		}
@@ -32,10 +32,11 @@ public class Moteur {
 	
 	private void killBrique(int i, int j, Raquette raquette){
 		raquette.addScore( this.inGBriques [i][j].kill() );
+		this.inGBriques [i][j]=null;
 	}
 	
 	private void killBall(Balle balle){
-		inGBalles.remove(balle) ;
+		inGBalles.remove(balle);
 	}
 	
 	private void createBall(Balle balle){
@@ -45,7 +46,6 @@ public class Moteur {
 	private void reviveBrique(int i, int j, Brique brique){
 		this.inGBriques [i][j] = brique;
 	}
-	
 	
 	
 

@@ -14,6 +14,15 @@ public class Forme {
 		this.vecteurY=0;
 	}
 	
+	public Forme(int x, int y, int l, int h, int vecX, int vecY){
+		this.x=x;
+		this.y=y;
+		this.largeur=l;
+		this.hauteur=h;
+		this.vecteurX=vecX;
+		this.vecteurY=vecY;
+	}
+	
 	public int getX(){
 		return this.x;
 	}

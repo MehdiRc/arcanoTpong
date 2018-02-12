@@ -80,7 +80,7 @@ public class Vue extends JFrame{
 	}
 	
 	public void ajouteBrique () {
-		briques.add(new Brique(10,10,50,50));
+		briques.add(new Brique(10,10,50,50,200,100));
 	}
 	
 	 public static void main(String args[]){
