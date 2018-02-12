@@ -17,49 +17,6 @@ public class Vue extends JFrame{
 	JLabel scoreJL;
 	JLabel chronosJL;
 
-	public class Brique{
-	    int x;
-	    int y;
-	    int width;
-	    int heigth;
-
-	    public Brique(int x, int y, int width, int heigth){
-	      this.x = x;
-	      this.y = y;
-	      this.width = width;
-	      this.heigth = heigth;
-	    }
-	  }
-	
-	public class Balle{
-	    double x;
-	    double y;
-	    double scale;
-	    double speed;
-
-	    public Balle(double x, double y, double scale, double speed){
-	      this.x = x;
-	      this.y = y;
-	      this.scale = scale;
-	      this.speed = speed;
-	    }
-	  }
-	
-	public class Raquette{
-	    double x;
-	    double y;
-	    double scale;
-	    double speed;
-
-	    public Raquette(double x, double y, double scale, double speed){
-	      this.x = x;
-	      this.y = y;
-	      this.scale = scale;
-	      this.speed = speed;
-	    }
-	  }
-	
-	
 	
 	
 	public ArrayList<Brique> briques = new ArrayList<Brique>();
@@ -85,7 +42,7 @@ public class Vue extends JFrame{
 	          Graphics2D g2 = (Graphics2D)g;
 	          
 	          for(Brique b : briques) {
-	        	  afficheBrique(b.x, b.y, b.width, b.heigth,g2);
+	        	  afficheBrique(b.x, b.y, b.largeur, b.hauteur,g2);
 	        	 /*g2.setColor(Color.BLUE);
 	        	  g2.fillRect(30, 30, 50, 50);*/
 	          }
