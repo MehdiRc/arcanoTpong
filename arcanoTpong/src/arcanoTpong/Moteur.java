@@ -35,34 +35,10 @@ public class Moteur {
 		for(int i=0; i<nRaquettes ;i++){
 			this.inGRaquettes[i] = new Raquette();
 		}
-	
+		
+		addBall(new Balle());
 	}
-	
-	public Brique killBrique(int i, int j, Raquette raquette){
-		raquette.addScore( this.inGBriques [i][j].kill() );
-		return this.inGBriques [i][j];
-	}
-	
-	public void killBall(Balle balle){
-		inGBalles.remove(balle);
-	}
-	
-	public void createBall(Balle balle){
-		inGBalles.add(balle) ;
-	}
-	
-	public void reviveBrique(int i, int j, Brique brique){
-		this.inGBriques [i][j] = brique;
-	}
-
-	public ArrayList <Raquette> getInGRaquettesArrayListe() {
-		return new ArrayList<>(Arrays.asList(inGRaquettes));
-	}
-	
-	public Raquette[] getInGRaquettes() {
-		return inGRaquettes;
-	}
-	
+	//*************
 	public ArrayList<Brique> getInGBriquesClean(){
 		ArrayList <Brique> result = new ArrayList <Brique> ();
 		for(int i=0; i<this.inGBriques.length ;i++){
@@ -73,5 +49,41 @@ public class Moteur {
 		}
 		return result;
 	}
+	
+	public ArrayList<Balle> getInGBalles(){
+		return inGBalles;
+	}
+	
+	public ArrayList <Raquette> getInGRaquettesArrayListe() {
+		return new ArrayList<>(Arrays.asList(inGRaquettes));
+	}
+	
+	public Raquette[] getInGRaquettes() {
+		return inGRaquettes;
+	}
+	
+	//***************
+	
+	
+	public Brique killBrique(int i, int j, Raquette raquette){
+		raquette.addScore( this.inGBriques [i][j].kill() );
+		return this.inGBriques [i][j];
+	}
+	
+	public void killBall(Balle balle){
+		inGBalles.remove(balle);
+	}
+	
+	public void addBall(Balle balle){
+		inGBalles.add(balle) ;
+	}
+	
+	public void reviveBrique(int i, int j, Brique brique){
+		this.inGBriques [i][j] = brique;
+	}
+
+
+	
+
 
 }

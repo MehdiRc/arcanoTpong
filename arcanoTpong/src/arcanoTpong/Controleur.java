@@ -11,13 +11,15 @@ public class Controleur {
 		    }
 		    
 		    view.setListeBriques(model.getInGBriquesClean());
-		    
+		    view.setListeBalles(model.getInGBalles());
+		    view.setListeRaquettes(model.getInGRaquettesArrayListe());
 		    /*
 		    Brique deadB = model.killBrique(2,1,model.getInGRaquettes()[0]);
 		    view.enleveBrique(deadB);
 		    */
 		    
 		    view.afficheScore(model.getInGRaquettes()[0].getScore());
+		    
 		    
 		    
 	 }
