@@ -21,7 +21,10 @@ public class Vue extends JFrame{
 	private ArrayList<Balle> balles = new ArrayList<Balle>();
 	private ArrayList<Raquette> raquettes = new ArrayList<Raquette>();
 	
-	private double scale;
+	private double scalex;
+	private double scaley;
+	
+	private VueJPanel1 jp1;
 	
 	public Vue(int lZoneJeu, int hZoneJeu) {
 		super();
@@ -30,7 +33,7 @@ public class Vue extends JFrame{
 		this.lZoneJeu=lZoneJeu;
 		
 		AffineTransform tx0 = new AffineTransform();
-
+		
 		
 		
 		setLayout(new BorderLayout());
@@ -42,14 +45,22 @@ public class Vue extends JFrame{
 	    top.add(chronosJL,   BorderLayout.EAST);
 	    getContentPane().add(top, BorderLayout.NORTH);
 	    
-	    jp = new JPanel(){
+	    /*jp = new JPanel(){
 	        @Override
 	        public void paintComponent(Graphics g){
 	          super.paintComponent(g);
-
 	          Graphics2D g2 = (Graphics2D)g;
 
+	          //this.setSize(new Dimension(lZoneJeu,hZoneJeu));
+	          System.out.println(this.getSize());
+	          AffineTransform tx1 = new AffineTransform();
+	          scalex = (double)jp.getWidth()/(double)lZoneJeu;
+	          scaley = (double)jp.getHeight()/(double)hZoneJeu;
+	          tx1.scale(scalex, scaley);
+	          System.out.println(scalex);
+	          //g2.setTransform(tx1);
 	          
+	          //this.setSize(new Dimension(lZoneJeu,hZoneJeu));
 	          
 	          Color briqueColor = new Color(100, 25, 50);
 	          
@@ -62,15 +73,24 @@ public class Vue extends JFrame{
 	          for(Raquette r : raquettes) {
 	        	  afficheRaquette(r.x, r.y, r.largeur, r.hauteur, g2, Color.red);
 	          }
+	          //g2.setTransform(tx0);
 	        }
-	    };
+	    };*/
+	    //jp.setMinimumSize(new Dimension(lZoneJeu, hZoneJeu));
 	    
-	    jp.setBackground(Color.WHITE);
-	    getContentPane().add(jp, BorderLayout.CENTER);
+	    //jp.setBackground(Color.WHITE);
+	    //getContentPane().add(jp, BorderLayout.CENTER);
+	    
+	    jp1= new VueJPanel1(this.lZoneJeu, this.hZoneJeu, this);
+	    
+	    getContentPane().add(jp1, BorderLayout.CENTER);
 	    setSize(lZoneJeu, hZoneJeu);
+	    System.out.println(this.getSize());
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setVisible(true);
 	}
+	
+	///////////////////////////////////////////////////////////////////////
 	
 	private void afficheBrique(int x, int y, int width, int height, Graphics2D g2, Color c) {
 		
@@ -91,6 +111,8 @@ public class Vue extends JFrame{
 		g2.setColor(c);
 		g2.fillRect(x, y, width, height);
 	}
+	
+	//////////////////////////////////////////////////////////////////////
 	
 	public void afficheScore(int score) {
 		scoreJL.setText("score : " + Integer.toString(score));
@@ -139,6 +161,18 @@ public class Vue extends JFrame{
 		this.raquettes.remove(r);
 	}
 	
+	public ArrayList<Brique> getListeBriques() {
+		return this.briques;
+	}
+	
+	public ArrayList<Balle> getListeBalles() {
+		return this.balles;
+	}
+	
+	public ArrayList<Raquette> getListeRaquettes() {
+		return this.raquettes;
+	}
+	
 	
 	 public static void main(String args[]){
 		    Vue v = new Vue(1200,800);
@@ -146,7 +180,7 @@ public class Vue extends JFrame{
 		    v.afficheScore(1111111);
 		    
 		    v.ajouteBrique(new Brique(0,0,0,0,80,40));
-		    v.ajouteBalle(new Balle(10,10));
+		    v.ajouteBalle(new Balle(40,40));
 		    v.ajouteRaquette(new Raquette(10,10));
 		    v.ajouteBrique(new Brique(0,0,1200-80,0,80,40));
 	 }
