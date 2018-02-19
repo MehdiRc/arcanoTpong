@@ -1,8 +1,11 @@
 package arcanoTpong;
 
 public class Controleur {
-	static Vue view = new Vue();
-	static Moteur model = new Moteur(1,80*5,30*20);
+	static int lZoneJeu=80*50; 
+	static int hZoneJeu=30*20;
+	
+	static Vue view = new Vue(lZoneJeu,hZoneJeu);
+	static Moteur model = new Moteur(1,lZoneJeu,hZoneJeu);
 	
 	 public static void main(String args[]){
 		 
