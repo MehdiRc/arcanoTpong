@@ -127,7 +127,7 @@ public class Vue extends JFrame{
 		this.raquettes.remove(r);
 	}
 	
-	
+	/*
 	 public static void main(String args[]){
 		    Vue v = new Vue();
 		    v.afficheScore(45);
@@ -136,6 +136,6 @@ public class Vue extends JFrame{
 		    v.ajouteBrique(new Brique(0,0,0,0,80,40));
 		    v.ajouteBalle(new Balle());
 		    v.ajouteRaquette(new Raquette());
-	 }
+	 }*/
 	
 }
