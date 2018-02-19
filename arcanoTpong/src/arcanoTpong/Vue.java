@@ -8,8 +8,8 @@ import javax.swing.*;
 
 public class Vue extends JFrame{
 	private JPanel jp;
-	private int length=800;//valeur par default
-	private int width=1200; //taille brique 80 par 40
+	private int hZoneJeu=800;//valeur par default
+	private int lZoneJeu=1200; //taille brique 80 par 40
 	/*private static BufferedImage Brique;
 	private static BufferedImage balle;
 	private static BufferedImage raquette;*/
@@ -23,10 +23,16 @@ public class Vue extends JFrame{
 	
 	private double scale;
 	
-	public Vue(int length, int width) {
+	public Vue(int lZoneJeu, int hZoneJeu) {
 		super();
-		this.length=length;
-		this.width=width;
+		
+		this.hZoneJeu=hZoneJeu;
+		this.lZoneJeu=lZoneJeu;
+		
+		AffineTransform tx0 = new AffineTransform();
+
+		
+		
 		setLayout(new BorderLayout());
 		scoreJL = new JLabel("score : ");
 	    chronosJL   = new JLabel("temps : ");
@@ -42,6 +48,8 @@ public class Vue extends JFrame{
 	          super.paintComponent(g);
 
 	          Graphics2D g2 = (Graphics2D)g;
+
+	          
 	          
 	          Color briqueColor = new Color(100, 25, 50);
 	          
@@ -59,7 +67,7 @@ public class Vue extends JFrame{
 	    
 	    jp.setBackground(Color.WHITE);
 	    getContentPane().add(jp, BorderLayout.CENTER);
-	    setSize(width, length);
+	    setSize(lZoneJeu, hZoneJeu);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setVisible(true);
 	}
@@ -133,7 +141,7 @@ public class Vue extends JFrame{
 	
 	
 	 public static void main(String args[]){
-		    Vue v = new Vue(800,1200);
+		    Vue v = new Vue(1200,800);
 		    v.afficheScore(45);
 		    v.afficheScore(1111111);
 		    
