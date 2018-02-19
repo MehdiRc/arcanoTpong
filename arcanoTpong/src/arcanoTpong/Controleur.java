@@ -1,8 +1,11 @@
 package arcanoTpong;
 
 public class Controleur {
-	static Vue view = new Vue();
-	static Moteur model = new Moteur(1,80*5,30*20);
+	static int lZoneJeu=80*10; 
+	static int hZoneJeu=30*20;
+	
+	static Vue view = new Vue(lZoneJeu,hZoneJeu);
+	static Moteur model = new Moteur(1,lZoneJeu,hZoneJeu);
 	
 	 public static void main(String args[]){
 		 
@@ -17,9 +20,7 @@ public class Controleur {
 		    Brique deadB = model.killBrique(2,1,model.getInGRaquettes()[0]);
 		    view.enleveBrique(deadB);
 		    */
-		    
 		    view.afficheScore(model.getInGRaquettes()[0].getScore());
-		    
 		    
 		    
 	 }

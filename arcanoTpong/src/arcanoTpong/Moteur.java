@@ -3,6 +3,8 @@ package arcanoTpong;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.sun.glass.events.KeyEvent;
+
 public class Moteur {
 	private Brique inGBriques [][];
 	private ArrayList <Balle> inGBalles;
@@ -18,6 +20,9 @@ public class Moteur {
 	int nBriquesX;
 	int nBriquesY;
 	
+	int lZoneJeu;
+	int hZoneJeu;
+	
 	public Moteur(int nRaquettes, int lZoneJeu, int hZoneJeu){
 		this.chrono=0;
 		this.gameOver=false;
@@ -25,6 +30,9 @@ public class Moteur {
 		
 		inGRaquettes= new Raquette [nRaquettes];
 		inGBalles= new ArrayList <Balle>();
+		
+		this.lZoneJeu=lZoneJeu;
+		this.hZoneJeu=hZoneJeu;
 		
 		this.nBriquesX=(int)(lZoneJeu/largeurBrique);
 		this.nBriquesY=(int)(hZoneJeu/hauteurBrique/3);
@@ -43,7 +51,8 @@ public class Moteur {
 		}
 		addBall(new Balle(lZoneJeu/2,hZoneJeu/2));
 	}
-	
+	/*// A FINIR UN JOUR 
+
 	public Moteur(int nRaquettes, int lZoneJeu, int hZoneJeu, int nBriquesX, int nBriquesY){
 		this.chrono=0;
 		this.gameOver=false;
@@ -69,6 +78,7 @@ public class Moteur {
 		}
 		addBall(new Balle(lZoneJeu/2,hZoneJeu/2));
 	}
+	*/
 	//*************
 	public ArrayList<Brique> getInGBriquesClean(){
 		ArrayList <Brique> result = new ArrayList <Brique> ();
@@ -95,7 +105,6 @@ public class Moteur {
 	
 	//***************
 	
-	
 	public Brique killBrique(int i, int j, Raquette raquette){
 		raquette.addScore( this.inGBriques [i][j].kill() );
 		return this.inGBriques [i][j];
@@ -112,8 +121,32 @@ public class Moteur {
 	public void reviveBrique(int i, int j, Brique brique){
 		this.inGBriques [i][j] = brique;
 	}
-
-
+	
+	public void teleportRaquetteX(Raquette r, int x){
+		r.x=x;
+	}
+	
+	public void teleportRaquetteY(Raquette r, int y){
+		r.y=y;
+	}
+	
+	public void movementRaquetteClavierX(Raquette r, int e){
+		switch (e)
+		{
+		  case 0:
+			  r.vecteurX=0;
+		    break;
+		  case 1:
+			  r.vecteurX=-1;
+		    break;
+		  case 2:
+			  r.vecteurX=1;
+		    break;
+		  default:
+			  r.vecteurX=0;
+		}
+	
+	}
 	
 
 
