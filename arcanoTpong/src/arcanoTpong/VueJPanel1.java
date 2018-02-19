@@ -51,13 +51,14 @@ public class VueJPanel1 extends JPanel{
         System.out.println(this.getHeight());
         System.out.println(this.getWidth());
         
-        g2.setTransform(tx1);
+        g2.scale(scalex, scaley);
         
         
         Color briqueColor = new Color(100, 25, 50);
         
         for(Brique b : v.getListeBriques()) {
-      	  afficheBrique(b.x, b.y, b.largeur, b.hauteur, g2, briqueColor);
+      	  //afficheBrique((int)(b.x*scalex),(int) (b.y*scaley), (int)(b.largeur*scalex),(int)(b.hauteur*scaley), g2, briqueColor);
+        	afficheBrique(b.x,b.y, b.largeur,b.hauteur, g2, briqueColor);
         }
         for(Balle b : v.getListeBalles()) {
       	  afficheBalle(b.x, b.y, b.largeur, b.hauteur, g2, Color.yellow.darker());
@@ -65,6 +66,7 @@ public class VueJPanel1 extends JPanel{
         for(Raquette r : v.getListeRaquettes()) {
       	  afficheRaquette(r.x, r.y, r.largeur, r.hauteur, g2, Color.red);
         }
+        g2.setTransform(tx0);
 		
 	}
 

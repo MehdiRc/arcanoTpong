@@ -32,11 +32,13 @@ public class Vue extends JFrame{
 		this.hZoneJeu=hZoneJeu;
 		this.lZoneJeu=lZoneJeu;
 		
+		setSize(lZoneJeu, hZoneJeu);
+		
 		AffineTransform tx0 = new AffineTransform();
 		
 		
 		
-		setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout());
 		scoreJL = new JLabel("score : ");
 	    chronosJL   = new JLabel("temps : ");
 	    JPanel top = new JPanel();
@@ -84,7 +86,9 @@ public class Vue extends JFrame{
 	    jp1= new VueJPanel1(this.lZoneJeu, this.hZoneJeu, this);
 	    
 	    getContentPane().add(jp1, BorderLayout.CENTER);
-	    setSize(lZoneJeu, hZoneJeu);
+	    JLabel chronosJL2   = new JLabel("temps : ");
+	    getContentPane().add(chronosJL2, BorderLayout.WEST);
+	    //setSize(lZoneJeu, hZoneJeu);
 	    System.out.println(this.getSize());
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setVisible(true);
