@@ -2,7 +2,7 @@ package arcanoTpong;
 
 public class Controleur {
 	static Vue view = new Vue();
-	static Moteur model = new Moteur(5,3,1);
+	static Moteur model = new Moteur(1,80*5,30*20);
 	
 	 public static void main(String args[]){
 		 

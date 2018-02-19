@@ -5,7 +5,7 @@ public class Raquette extends Forme {
 	private int score;
 	private int vie;
 	
-	public Raquette(){
+	public Raquette(int x,int y){
 		super();
 		this.score=0;
 		this.vie=1;
@@ -13,8 +13,8 @@ public class Raquette extends Forme {
 		this.largeur=50;
 		this.hauteur=20;
 		
-		this.x=100;
-		this.y=100;
+		this.x=(int)(x-this.largeur/2);
+		this.y=(int)(y-this.hauteur-100);
 	}
 	
 	public int getScore(){

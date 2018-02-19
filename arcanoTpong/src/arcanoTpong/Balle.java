@@ -3,7 +3,7 @@ package arcanoTpong;
 public class Balle extends Forme{
 	int joueur;
 	
-	public Balle(){
+	public Balle(int x, int y){
 		super();
 		this.joueur=1;
 		
@@ -13,8 +13,8 @@ public class Balle extends Forme{
 		this.vecteurY=1;
 		this.vecteurX=0;
 		
-		this.x=200;
-		this.y=200;
+		this.x=x-this.largeur/2;
+		this.y=y-this.hauteur/2;
 		
 	}
 	
