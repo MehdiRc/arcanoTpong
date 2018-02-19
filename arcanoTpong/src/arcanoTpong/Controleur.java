@@ -1,7 +1,7 @@
 package arcanoTpong;
 
 public class Controleur {
-	static int lZoneJeu=80*50; 
+	static int lZoneJeu=80*10; 
 	static int hZoneJeu=30*20;
 	
 	static Vue view = new Vue(lZoneJeu,hZoneJeu);
@@ -22,7 +22,6 @@ public class Controleur {
 		    */
 		    
 		    view.afficheScore(model.getInGRaquettes()[0].getScore());
-		    
 		    
 		    
 	 }

@@ -10,7 +10,7 @@ public class Raquette extends Forme {
 		this.score=0;
 		this.vie=1;
 		
-		this.largeur=50;
+		this.largeur=80;
 		this.hauteur=20;
 		
 		this.x=(int)(x-this.largeur/2);
@@ -28,6 +28,13 @@ public class Raquette extends Forme {
 	public int getVie(){
 		return this.vie;
 	}
+	
+	public void updateRaquettePosition(){
+		this.x= this.x+ this.vecteurX;
+		this.y= this.y+ this.vecteurY;
+	}
+	
+	
 	
 	
 
