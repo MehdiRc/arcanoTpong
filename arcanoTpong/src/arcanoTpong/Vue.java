@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Vue extends JFrame{
 	private JPanel jp;
-	private int length=800;
+	private int length=800;//valeur par default
 	private int width=1200; //taille brique 80 par 40
 	/*private static BufferedImage Brique;
 	private static BufferedImage balle;
@@ -21,11 +21,15 @@ public class Vue extends JFrame{
 	private ArrayList<Balle> balles = new ArrayList<Balle>();
 	private ArrayList<Raquette> raquettes = new ArrayList<Raquette>();
 	
-	public Vue() {
+	private double scale;
+	
+	public Vue(int length, int width) {
 		super();
+		this.length=length;
+		this.width=width;
 		setLayout(new BorderLayout());
 		scoreJL = new JLabel("score : ");
-	    chronosJL   = new JLabel("temps : ");
+	    chronosJL = new JLabel("temps : ");
 	    JPanel top = new JPanel();
 	    top.setLayout(new BorderLayout());
 	    top.add(scoreJL, BorderLayout.WEST);
@@ -127,15 +131,18 @@ public class Vue extends JFrame{
 		this.raquettes.remove(r);
 	}
 	
-	/*
+	
 	 public static void main(String args[]){
-		    Vue v = new Vue();
+		    Vue v = new Vue(800,1200);
 		    v.afficheScore(45);
 		    v.afficheScore(1111111);
 		    
 		    v.ajouteBrique(new Brique(0,0,0,0,80,40));
-		    v.ajouteBalle(new Balle());
-		    v.ajouteRaquette(new Raquette());
-	 }*/
+
+		    v.ajouteBalle(new Balle(10,10));
+		    v.ajouteRaquette(new Raquette(10,10));
+		    v.ajouteBrique(new Brique(0,0,1200-80,0,80,40));
+	 }
+
 	
 }
