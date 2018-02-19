@@ -9,7 +9,7 @@ import javax.swing.*;
 public class Vue extends JFrame{
 	private JPanel jp;
 	private int hZoneJeu=800;//valeur par default
-	private int lZoneJeu=1200; //taille brique 80 par 40
+	private int lZoneJeu=1200; 
 	/*private static BufferedImage Brique;
 	private static BufferedImage balle;
 	private static BufferedImage raquette;*/
