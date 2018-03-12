@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-public class Vue extends JFrame{
+public class Vue11 extends JFrame{
 	private int hZoneJeu=800;//valeur par default
 	private int lZoneJeu=1200; 
 	
@@ -27,7 +27,7 @@ public class Vue extends JFrame{
 	private VueJPanelFrame jpf;
 	
 	
-	public Vue(int lZoneJeu, int hZoneJeu) {
+	public Vue11(int lZoneJeu, int hZoneJeu) {
 		super();
 		
 		this.hZoneJeu=hZoneJeu;
@@ -49,7 +49,7 @@ public class Vue extends JFrame{
 	    getContentPane().add(top, BorderLayout.NORTH);
 	    
 	    
-	    jp1= new VueJPanel1(this.lZoneJeu, this.hZoneJeu, this);
+	    jp1= new VueJPanel1(this.lZoneJeu, this.hZoneJeu, new Vue(0,0));
 	    
 
 	    getContentPane().add(jp1, BorderLayout.CENTER);
