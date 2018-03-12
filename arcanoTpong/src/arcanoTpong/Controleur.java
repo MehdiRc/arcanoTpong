@@ -37,7 +37,7 @@ public class Controleur {
 		    view.getPanel().addMouseMotionListener(new MouseMotionAdapter(){
 		        @Override
 		        public void mouseMoved(MouseEvent e){
-		          model.teleportRaquetteX(model.getInGRaquettes()[0], e.getX());
+		          model.teleportRaquetteX(model.getInGRaquettes()[0], (int) (e.getX()/view.getScaleX()));
 		        }
 		      });
 		    

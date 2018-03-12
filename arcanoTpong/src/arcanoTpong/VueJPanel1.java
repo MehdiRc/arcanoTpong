@@ -15,8 +15,8 @@ public class VueJPanel1 extends JPanel{
 	private int largeurInit;
 	private int hauteurInit;
 	
-	private double scalex;
-	private double scaley;
+	public double scalex;
+	public double scaley;
 	
 	
 	private Vue v;

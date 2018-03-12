@@ -186,7 +186,13 @@ public class Vue extends JFrame{
 		return this.jp1;
 	}
 	
+	public double getScaleX() {
+		return jp1.scalex;
+	}
 	
+	public double getScaleY() {
+		return jp1.scaley;
+	}
 	
 	
 	public int getMouseX() {
