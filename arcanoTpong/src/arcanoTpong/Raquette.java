@@ -32,7 +32,9 @@ public class Raquette extends Forme {
 	public void updateRaquettePosition(){
 		this.x= this.x+ this.vecteurX;
 		this.y= this.y+ this.vecteurY;
-	}
+		this.vecteurX=0;
+		this.vecteurY=0;
+		}
 	
 	
 	

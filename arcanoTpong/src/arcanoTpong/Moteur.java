@@ -3,8 +3,6 @@ package arcanoTpong;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.sun.glass.events.KeyEvent;
-
 public class Moteur {
 	private Brique inGBriques [][];
 	private ArrayList <Balle> inGBalles;

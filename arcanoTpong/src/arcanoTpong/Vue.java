@@ -182,8 +182,17 @@ public class Vue extends JFrame{
 		return this.raquettes;
 	}
 	
+	public JPanel getPanel() {
+		return this.jp1;
+	}
 	
+	public double getScaleX() {
+		return jp1.scalex;
+	}
 	
+	public double getScaleY() {
+		return jp1.scaley;
+	}
 	
 	
 	public int getMouseX() {
@@ -198,7 +207,6 @@ public class Vue extends JFrame{
 		    Vue v = new Vue(1200,800);
 		    v.afficheScore(45);
 		    v.afficheScore(1111111);
-		    
 		    v.ajouteBrique(new Brique(0,0,0,0,80,40));
 		    v.ajouteBalle(new Balle(40,40));
 		    v.ajouteRaquette(new Raquette(10,10));
