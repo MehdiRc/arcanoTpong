@@ -177,13 +177,16 @@ public class Vue extends JFrame{
 		return this.raquettes;
 	}
 	
-	public int getmousex() {
-		return jp.getX();
+	
+	
+	
+	
+	public int getMouseX() {
+		//return jp.getMousePosition().x;
+		return MouseInfo.getPointerInfo().getLocation().x;
 	}
 	
-	
-	
-	
+
 	 public static void main(String args[]){
 		    Vue v = new Vue(1200,800);
 		    v.afficheScore(45);
@@ -193,6 +196,7 @@ public class Vue extends JFrame{
 		    v.ajouteBalle(new Balle(40,40));
 		    v.ajouteRaquette(new Raquette(10,10));
 		    v.ajouteBrique(new Brique(0,0,1200-80,0,80,40));
+		    System.out.println("mouse " + v.getMouseX());
 	 }
 	
 }
