@@ -25,6 +25,8 @@ public class Vue extends JFrame{
 	private double scaley;
 	
 	private VueJPanel1 jp1;
+	private VueJPanelFrame jpf;
+	
 	
 	public Vue(int lZoneJeu, int hZoneJeu) {
 		super();
