@@ -85,6 +85,11 @@ public class Vue extends JFrame{
 	    
 	    jp1= new VueJPanel1(this.lZoneJeu, this.hZoneJeu, this);
 	    
+	    
+	    
+	    
+	    
+	    
 	    getContentPane().add(jp1, BorderLayout.CENTER);
 	    //JLabel chronosJL2   = new JLabel("temps : ");
 	    //getContentPane().add(chronosJL2, BorderLayout.WEST);
@@ -183,7 +188,9 @@ public class Vue extends JFrame{
 	
 	public int getMouseX() {
 		//return jp.getMousePosition().x;
-		return MouseInfo.getPointerInfo().getLocation().x;
+		Point tmp = MouseInfo.getPointerInfo().getLocation();
+		SwingUtilities.convertPointFromScreen(tmp, jp1);
+		return tmp.x;
 	}
 	
 
