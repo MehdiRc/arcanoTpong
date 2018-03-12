@@ -51,7 +51,7 @@ public class Controleur {
 		    Brique deadB = model.killBrique(2,1,model.getInGRaquettes()[0]);
 		    view.enleveBrique(deadB);
 		    */
-		    	model.getInGRaquettes()[0].updateRaquettePosition();
+		    model.getInGRaquettes()[0].updateRaquettePosition();
 		    view.afficheScore(model.getInGRaquettes()[0].getScore());
 		    
 		    view.repaint();
