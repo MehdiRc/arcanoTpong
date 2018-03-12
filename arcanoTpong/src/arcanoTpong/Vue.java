@@ -177,6 +177,12 @@ public class Vue extends JFrame{
 		return this.raquettes;
 	}
 	
+	public int getmousex() {
+		return jp.getX();
+	}
+	
+	
+	
 	
 	 public static void main(String args[]){
 		    Vue v = new Vue(1200,800);

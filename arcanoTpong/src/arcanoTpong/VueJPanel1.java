@@ -90,5 +90,6 @@ public class VueJPanel1 extends JPanel{
 		g2.setColor(c);
 		g2.fillRect(x, y, width, height);
 	}
+	
 
 }
