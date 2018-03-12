@@ -86,8 +86,8 @@ public class Vue extends JFrame{
 	    jp1= new VueJPanel1(this.lZoneJeu, this.hZoneJeu, this);
 	    
 	    getContentPane().add(jp1, BorderLayout.CENTER);
-	    JLabel chronosJL2   = new JLabel("temps : ");
-	    getContentPane().add(chronosJL2, BorderLayout.WEST);
+	    //JLabel chronosJL2   = new JLabel("temps : ");
+	    //getContentPane().add(chronosJL2, BorderLayout.WEST);
 	    //setSize(lZoneJeu, hZoneJeu);
 	    System.out.println(this.getSize());
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
