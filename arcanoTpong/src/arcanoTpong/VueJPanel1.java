@@ -46,10 +46,10 @@ public class VueJPanel1 extends JPanel{
         scaley = (double)this.getHeight()/(double)hauteurInit;
         tx1.scale(scalex, scaley);
         
-        System.out.println("scalex " + scalex);
+        /*System.out.println("scalex " + scalex);
         System.out.println("scaley " + scaley);
         System.out.println(this.getHeight());
-        System.out.println(this.getWidth());
+        System.out.println(this.getWidth());*/
         
         g2.scale(scalex, scaley);
         
