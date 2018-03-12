@@ -123,11 +123,21 @@ public class Moteur {
 	}
 	
 	public void teleportRaquetteX(Raquette r, int x){
-		r.x=x;
+		if(x<0)
+			r.x=0;
+		else if(x>lZoneJeu-r.largeur)
+			r.x=lZoneJeu-r.largeur;
+		else
+			r.x=x;
 	}
 	
 	public void teleportRaquetteY(Raquette r, int y){
-		r.y=y;
+		if(y<0)
+			r.y=0;
+		else if(y>hZoneJeu-r.hauteur)
+			r.y=hZoneJeu-r.hauteur;
+		else
+			r.y=y;
 	}
 	
 	public void movementRaquetteClavierX(Raquette r, int e){
