@@ -1,7 +1,11 @@
 package arcanoTpong;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Moteur {
 	private Brique inGBriques [][];
@@ -9,8 +13,8 @@ public class Moteur {
 	private Raquette inGRaquettes [];
 	
 	private int chrono;
-	private boolean gameOver;
-	private boolean pause;
+	private static boolean gameOver;
+	private static boolean pause;
 	
 	private int largeurBrique=80;
 	private int hauteurBrique=30;
@@ -18,8 +22,8 @@ public class Moteur {
 	int nBriquesX;
 	int nBriquesY;
 	
-	int lZoneJeu;
-	int hZoneJeu;
+	static int lZoneJeu;
+	static int hZoneJeu;
 	
 	public Moteur(int nRaquettes, int lZoneJeu, int hZoneJeu){
 		this.chrono=0;
@@ -48,6 +52,8 @@ public class Moteur {
 			this.inGRaquettes[i] = new Raquette(lZoneJeu/2,hZoneJeu);
 		}
 		addBall(new Balle(lZoneJeu/2,hZoneJeu/2));
+		addBall(new Balle(lZoneJeu/3,hZoneJeu/3));
+		
 	}
 	/*// A FINIR UN JOUR 
 
@@ -121,11 +127,21 @@ public class Moteur {
 	}
 	
 	public void teleportRaquetteX(Raquette r, int x){
-		r.x=x;
+		if(x<0)
+			r.x=0;
+		else if(x>lZoneJeu-r.largeur)
+			r.x=lZoneJeu-r.largeur;
+		else
+			r.x=x;
 	}
 	
 	public void teleportRaquetteY(Raquette r, int y){
-		r.y=y;
+		if(y<0)
+			r.y=0;
+		else if(y>hZoneJeu-r.hauteur)
+			r.y=hZoneJeu-r.hauteur;
+		else
+			r.y=y;
 	}
 	
 	public void movementRaquetteClavierX(Raquette r, int e){
@@ -135,15 +151,31 @@ public class Moteur {
 			  r.vecteurX=0;
 		    break;
 		  case 1:
-			  r.vecteurX=-1;
+			  r.vecteurX=-20;
 		    break;
 		  case 2:
-			  r.vecteurX=1;
+			  r.vecteurX=20;
 		    break;
 		  default:
 			  r.vecteurX=0;
 		}
-	
+		
+		r.updateRaquettePosition();
 	}
+	
+	public static void collisionBords(Balle b){
+		if(!gameOver && !pause){
+			if(b.x<0)
+				b.vecteurX=-b.getVecteurX();
+			if(b.x+b.largeur>lZoneJeu)
+				b.vecteurX=-b.getVecteurX();
+			if(b.y<0)
+				b.vecteurY=-b.getVecteurY();
+			if(b.y+b.hauteur>hZoneJeu)
+				b.vecteurY=-b.getVecteurY();
+		}
+	}
+	
+	
 	
 }
