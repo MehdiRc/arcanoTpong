@@ -35,7 +35,7 @@ public class Vue extends JFrame{
 		
 		setSize(lZoneJeu, hZoneJeu);
 		
-		 
+		
 		
 		
 		this.setLayout(new BorderLayout());
