@@ -56,7 +56,7 @@ public class VueJPanel1 extends JPanel{
         
         g2.scale(scalex, scaley);
         
-        g2.drawImage(v.fond, 0, 0, null);//dessin de l'image de fond 
+        g2.drawImage(v.fond, 0, 0,this.largeurInit,this.hauteurInit, null);//dessin de l'image de fond 
         
         Color briqueColor = new Color(100, 25, 50);
         

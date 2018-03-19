@@ -41,13 +41,13 @@ public class VueJPanelFrame extends JPanel{
 		
 		
 		this.setLayout(new BorderLayout());
-		scoreJL = new JLabel("score : ");
+		/*scoreJL = new JLabel("score : ");
 	    chronosJL   = new JLabel("temps : ");
 	    JPanel top = new JPanel();
 	    top.setLayout(new BorderLayout());
 	    top.add(scoreJL, BorderLayout.WEST);
 	    top.add(chronosJL,   BorderLayout.EAST);
-	    this.add(top, BorderLayout.NORTH);
+	    this.add(top, BorderLayout.NORTH);*/
 	    
 		
 	    jp1 = new VueJPanel1(largeur, hauteur, this);

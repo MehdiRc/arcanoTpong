@@ -61,12 +61,12 @@ public class Vue extends JFrame{
 	
 	public void afficheScore(int score) {
 		//scoreJL.setText("score : " + Integer.toString(score));
-		this.jpf.setScore(score);
+		//this.jpf.setScore(score);
 	}
 	
 	public void afficheChronos(int chronos) {
 		//chronosJL.setText("temps : " + Integer.toString(chronos));
-		this.jpf.setChronos(chronos);
+		//this.jpf.setChronos(chronos);
 	}
 	
 	
