@@ -1,6 +1,7 @@
 package arcanoTpong;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +30,9 @@ public class VueJPanelFrame extends JPanel{
 	protected ArrayList<Raquette> raquettes = new ArrayList<Raquette>();
 	
 	
+	private GameJPanelGauche gauche;
+	private JPanel droit;
+	
 	private VueJPanel1 jp1;
 	
 	public VueJPanelFrame(int largeur, int hauteur) {
@@ -49,8 +53,18 @@ public class VueJPanelFrame extends JPanel{
 	    top.add(chronosJL,   BorderLayout.EAST);
 	    this.add(top, BorderLayout.NORTH);*/
 	    
+		this.gauche = new GameJPanelGauche(hauteur, largeur);
+		this.droit = new JPanel();
+		this.droit.setSize(100, hauteur);
+		this.add(gauche, BorderLayout.WEST);
+		this.add(droit, BorderLayout.EAST);
 		
-	    jp1 = new VueJPanel1(largeur, hauteur, this);
+		
+		jp1 = new VueJPanel1(largeur-200, hauteur, this);
+		
+
+		
+		
 	    
 	
 	    this.add(jp1, BorderLayout.CENTER);

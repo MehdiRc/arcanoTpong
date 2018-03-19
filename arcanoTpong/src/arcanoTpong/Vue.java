@@ -31,9 +31,9 @@ public class Vue extends JFrame{
 		super();
 		
 		this.hZoneJeu=hZoneJeu;
-		this.lZoneJeu=lZoneJeu;
+		this.lZoneJeu=lZoneJeu+200;
 		
-		setSize(lZoneJeu, hZoneJeu);
+		setSize(lZoneJeu+200, hZoneJeu);
 		
 		
 		
