@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,10 +20,11 @@ public class VueJPanel1 extends JPanel{
 	public double scaley;
 	
 	
-	private Vue v;
+	private VueJPanelFrame v;
 	private AffineTransform tx0;
 	
-	public VueJPanel1(int largeur, int hauteur, Vue v){
+	
+	public VueJPanel1(int largeur, int hauteur, VueJPanelFrame v){
 		
 		super();
 		

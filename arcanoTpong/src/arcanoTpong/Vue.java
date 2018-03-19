@@ -15,17 +15,17 @@ public class Vue extends JFrame{
 	private static BufferedImage balle;
 	private static BufferedImage raquette;*/
 	
-	private JLabel scoreJL;
-	private JLabel chronosJL;
-	
-	private ArrayList<Brique> briques = new ArrayList<Brique>();
-	private ArrayList<Balle> balles = new ArrayList<Balle>();
-	private ArrayList<Raquette> raquettes = new ArrayList<Raquette>();
 
+	private double scaleX = 1; //pour avoir acces facilement au valeur de redimentionnement. par default 1
+	private double scaleY = 1;
 	
-	private VueJPanel1 jp1;
+	
+	
+	 //les jpanels
 	private VueJPanelFrame jpf;
+	private VueJPanelMenuP jpm;
 	
+	private JPanel jp; // le jpanel courant utiliser par la jframe
 	
 	public Vue(int lZoneJeu, int hZoneJeu) {
 		super();
@@ -35,31 +35,23 @@ public class Vue extends JFrame{
 		
 		setSize(lZoneJeu, hZoneJeu);
 		
-		AffineTransform tx0 = new AffineTransform();
 		
 		
 		
 		this.setLayout(new BorderLayout());
-		scoreJL = new JLabel("score : ");
-	    chronosJL   = new JLabel("temps : ");
-	    JPanel top = new JPanel();
-	    top.setLayout(new BorderLayout());
-	    top.add(scoreJL, BorderLayout.WEST);
-	    top.add(chronosJL,   BorderLayout.EAST);
-	    getContentPane().add(top, BorderLayout.NORTH);
+		
+		
+		
+	    jpf = new VueJPanelFrame(this.lZoneJeu, this.hZoneJeu);
+	    jp = jpf;
 	    
-	    
-	    jp1= new VueJPanel1(this.lZoneJeu, this.hZoneJeu, this);
+	    getContentPane().add(jpf, BorderLayout.CENTER);
 	    
 
-	    getContentPane().add(jp1, BorderLayout.CENTER);
-	    
-	    //JLabel chronosJL2   = new JLabel("temps : ");
-	    //getContentPane().add(chronosJL2, BorderLayout.WEST);
-	    //setSize(lZoneJeu, hZoneJeu)
 	    
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setVisible(true);
+
 	}
 	
 	
@@ -68,74 +60,76 @@ public class Vue extends JFrame{
 	//////////////////////////////////////////////////////////////////////
 	
 	public void afficheScore(int score) {
-		scoreJL.setText("score : " + Integer.toString(score));
+		//scoreJL.setText("score : " + Integer.toString(score));
+		this.jpf.setScore(score);
 	}
 	
 	public void afficheChronos(int chronos) {
-		chronosJL.setText("temps : " + Integer.toString(chronos));
+		//chronosJL.setText("temps : " + Integer.toString(chronos));
+		this.jpf.setChronos(chronos);
 	}
 	
 	
 	public void ajouteBrique(Brique b) {
-		briques.add(b);
+		jpf.briques.add(b);
 	}
 	
 	public void ajouteBalle(Balle b) {
-		balles.add(b);
+		jpf.balles.add(b);
 	}
 	
 	public void ajouteRaquette(Raquette r) {
-		raquettes.add(r);
+		jpf.raquettes.add(r);
 	}
 	
 	
 	public void setListeBriques(ArrayList<Brique> b) {
-		this.briques = b;
+		jpf.briques = b;
 	}
 	
 	public void setListeBalles(ArrayList<Balle> b) {
-		this.balles = b;
+		jpf.balles = b;
 	}
 	
 	public void setListeRaquettes(ArrayList<Raquette> r) {
-		this.raquettes = r;
+		jpf.raquettes = r;
 	}
 	
 
 	public void enleveBrique(Brique b) {
-		this.briques.remove(b);
+		jpf.briques.remove(b);
 	}
 	
 	public void enleveBalle(Balle b) {
-		this.balles.remove(b);
+		jpf.balles.remove(b);
 	}
 	
 	public void enleveRaquette(Raquette r) {
-		this.raquettes.remove(r);
+		jpf.raquettes.remove(r);
 	}
 	
 	public ArrayList<Brique> getListeBriques() {
-		return this.briques;
+		return jpf.briques;
 	}
 	
 	public ArrayList<Balle> getListeBalles() {
-		return this.balles;
+		return jpf.balles;
 	}
 	
 	public ArrayList<Raquette> getListeRaquettes() {
-		return this.raquettes;
+		return jpf.raquettes;
 	}
 	
 	public JPanel getPanel() {
-		return this.jp1;
+		return this.jp;
 	}
 	
 	public double getScaleX() {
-		return jp1.scalex;
+		return this.jpf.getScaleX();
 	}
 	
 	public double getScaleY() {
-		return jp1.scaley;
+		return this.jpf.getScaleY();
 	}
 	
 	
@@ -144,7 +138,7 @@ public class Vue extends JFrame{
 	 public static void main(String args[]){
 		    Vue v = new Vue(1200,800);
 		    v.afficheScore(45);
-		    v.afficheScore(1111111);
+		    v.afficheScore(11111112);
 		    v.ajouteBrique(new Brique(0,0,0,0,80,40));
 		    v.ajouteBalle(new Balle(40,40));
 		    v.ajouteRaquette(new Raquette(10,10));
