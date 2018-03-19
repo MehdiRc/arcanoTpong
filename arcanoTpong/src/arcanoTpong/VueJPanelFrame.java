@@ -1,8 +1,12 @@
 package arcanoTpong;
 
 import java.awt.BorderLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -12,9 +16,10 @@ public class VueJPanelFrame extends JPanel{
 	private int largeurInit=1200; 
 	
 	
-	/*private static BufferedImage Brique;
-	private static BufferedImage balle;
-	private static BufferedImage raquette;*/
+	protected static BufferedImage Brique;
+	protected static BufferedImage balle;
+	protected static BufferedImage raquette;
+	protected static BufferedImage fond;
 	
 	private JLabel scoreJL;
 	private JLabel chronosJL;
@@ -28,6 +33,12 @@ public class VueJPanelFrame extends JPanel{
 	
 	public VueJPanelFrame(int largeur, int hauteur) {
 	
+		try {
+		      fond = ImageIO.read(new File("imageFond.jpg"));
+		    } catch (IOException e) {
+		      e.printStackTrace();
+		    }
+		
 		
 		this.setLayout(new BorderLayout());
 		scoreJL = new JLabel("score : ");

@@ -35,7 +35,8 @@ public class VueJPanel1 extends JPanel{
 		
 		this.setSize(largeur, hauteur);
 		
-		this.setBackground(Color.white);
+		//this.setBackground(Color.white);
+		//this.setBackground(v.fond);
 		
 	}
 	
@@ -55,6 +56,7 @@ public class VueJPanel1 extends JPanel{
         
         g2.scale(scalex, scaley);
         
+        g2.drawImage(v.fond, 0, 0, null);//dessin de l'image de fond
         
         Color briqueColor = new Color(100, 25, 50);
         
